@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays em javascript</title>
+    <script>
+        var objetos = ["cadeira", "impressora", "garfo"];
+        function adicionaObjeto() {
+            // primeiramente verifica se o campo inserido pelo usuário está vazio
+            if (document.getElementById('objeto').value == "") {
+                alert("Informe um valor válido");
+            }
+
+            // verifica se o valor já existe no array, se existir, sinaliza que existe e não adiciona
+            else if (objetos.indexOf(document.getElementById('objeto').value) != -1) {
+                alert("objeto informado já existe!");
+            }
+            else if (objetos.indexOf(document.getElementById('objeto').value) == -1) {
+                objetos = objetos.push(document.getElementById('objeto').value);
+                alert("o objeto solicitado foi adicionado, conferir no console");
+                console.log(objetos);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Arrays em javascript</h1>
+    <p>Este script aloca alguns objetos dentro de um array. para adicionar ou remover um dos objetos cadastrados, use o
+        formulário abaixo</p>
+    <label for="objeto">objeto
+        <input type="text" name="objeto" id="objeto">
+    </label>
+    <button onclick="adicionaObjeto()">Adicionar objeto</button> <br>
+    <button onclick="ordenarObjeto()">ordenar objeto</button>
+</body>
+
+</html>
