@@ -7,22 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>arrays em javascript</title>
     <script>
-        var objetos = ["cadeira", "impressora", "garfo"];
+        let valorHtml = document.getElementById('objeto').value;
+        const objetos = ["cadeira", "impressora", "garfo"];
         function adicionaObjeto() {
             // primeiramente verifica se o campo inserido pelo usuário está vazio
-            if (document.getElementById('objeto').value == "") {
+            if (valorHtml == "") {
                 alert("Informe um valor válido");
             }
 
             // verifica se o valor já existe no array, se existir, sinaliza que existe e não adiciona
-            else if (objetos.indexOf(document.getElementById('objeto').value) != -1) {
+            else if (objetos.indexOf(valorHtml) != -1) {
                 alert("objeto informado já existe!");
             }
-            else if (objetos.indexOf(document.getElementById('objeto').value) == -1) {
-                objetos = objetos.push(document.getElementById('objeto').value);
+            else if (objetos.indexOf(valorHtml) == -1) {
+                objetos.push(valorHtml);
                 alert("o objeto solicitado foi adicionado, conferir no console");
                 console.log(objetos);
             }
+        }
+
+        function ordenarObjeto() {
+            objetos.sort();
+            console.log(objetos);
         }
     </script>
 </head>
