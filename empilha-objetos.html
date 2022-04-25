@@ -21,25 +21,26 @@
         const objetos = ["cadeira", "impressora", "garfo"];
         function adicionaObjeto() {
             // primeiramente verifica se o campo inserido pelo usuário está vazio
-            if (document.getElementById('objeto').value == "") {
-                alert("Informe um valor válido");
+            const novoObjeto = document.getElementById('objeto').value
+            if (novoObjeto == "") {
+                return alert("Informe um valor válido");
             }
 
             // verifica se o valor já existe no array, se existir, sinaliza que existe e não adiciona
-            else if (objetos.indexOf(document.getElementById('objeto').value) != -1) {
-                alert("objeto informado já existe!");
-            }
-            else if (objetos.indexOf(document.getElementById('objeto').value) == -1) {
-                objetos.push(document.getElementById('objeto').value);
+            const objetoJaExiste = objetos.indexOf(novoObjeto) >= 0
+            if (objetoJaExiste) {
+                return alert("objeto informado já existe!");
+            } else {
+                objetos.push(novoObjeto);
                 alert("o objeto solicitado foi adicionado, conferir no console");
-                console.log(objetos);
+                return console.log(objetos);
             }
         }
 
         function ordenarObjeto() {
             objetos.sort();
             alert("os objetos foram ordenados de forma alfabética, conferir no log")
-            console.log(objetos);
+            return console.log(objetos);
         }
     </script>
 
