@@ -1,36 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>arrays em javascript</title>
-    <script>
-        let valorHtml = document.getElementById('objeto').value;
-        const objetos = ["cadeira", "impressora", "garfo"];
-        function adicionaObjeto() {
-            // primeiramente verifica se o campo inserido pelo usuário está vazio
-            if (valorHtml == "") {
-                alert("Informe um valor válido");
-            }
-
-            // verifica se o valor já existe no array, se existir, sinaliza que existe e não adiciona
-            else if (objetos.indexOf(valorHtml) != -1) {
-                alert("objeto informado já existe!");
-            }
-            else if (objetos.indexOf(valorHtml) == -1) {
-                objetos.push(valorHtml);
-                alert("o objeto solicitado foi adicionado, conferir no console");
-                console.log(objetos);
-            }
-        }
-
-        function ordenarObjeto() {
-            objetos.sort();
-            console.log(objetos);
-        }
-    </script>
 </head>
 
 <body>
@@ -42,6 +17,32 @@
     </label>
     <button onclick="adicionaObjeto()">Adicionar objeto</button> <br>
     <button onclick="ordenarObjeto()">ordenar objeto</button>
+    <script>
+        const objetos = ["cadeira", "impressora", "garfo"];
+        function adicionaObjeto() {
+            // primeiramente verifica se o campo inserido pelo usuário está vazio
+            if (document.getElementById('objeto').value == "") {
+                alert("Informe um valor válido");
+            }
+
+            // verifica se o valor já existe no array, se existir, sinaliza que existe e não adiciona
+            else if (objetos.indexOf(document.getElementById('objeto').value) != -1) {
+                alert("objeto informado já existe!");
+            }
+            else if (objetos.indexOf(document.getElementById('objeto').value) == -1) {
+                objetos.push(document.getElementById('objeto').value);
+                alert("o objeto solicitado foi adicionado, conferir no console");
+                console.log(objetos);
+            }
+        }
+
+        function ordenarObjeto() {
+            objetos.sort();
+            alert("os objetos foram ordenados de forma alfabética, conferir no log")
+            console.log(objetos);
+        }
+    </script>
+
 </body>
 
 </html>
